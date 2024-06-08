@@ -11,14 +11,14 @@ module.exports = {
         const freejourneyClient = new FreejourneyClient()
         const slicedMessageContent = message.content.slice(SUMMON_PREFIX.length)
 
-        message.reply({ content: `${LOADING_EMOJI}${LOADING_EMOJI.length > 0 ? ' ': ''}**Подождите...**` }).then(async (outputMessage) => {
+        message.reply({ content: `${LOADING_EMOJI ? LOADING_EMOJI + ' ' : ''}**Подождите...**` }).then(async (outputMessage) => {
             const output = await freejourneyClient.send(slicedMessageContent)
 
             if (!output.completion) {
                 return outputMessage.edit({ content: 'Не удалось получить ответ от нейросети.' })
             }
 
-            completion = output.completion
+            let completion = output.completion
 
             if (completion.length > 2000) {
                 completion = completion.substring(0, 1996)
