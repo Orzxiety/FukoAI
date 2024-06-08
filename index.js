@@ -9,10 +9,6 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent
     ],
-    partials: [
-        Partials.Message,
-        Partials.MessageContent
-    ],
     presence: {
         activities: [{
             name: `${SUMMON_PREFIX}[сообщение]`,
