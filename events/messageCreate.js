@@ -12,7 +12,7 @@ module.exports = {
         const slicedMessageContent = message.content.slice(SUMMON_PREFIX.length)
 
         message.reply({ content: `${LOADING_EMOJI}${LOADING_EMOJI.length > 0 ? ' ': ''}**Подождите...**`, allowedMentions: { parse: [] } }).then(async (outputMessage) => {
-            await freejourneyClient.send(slicedMessageContent).then((response) => { output = response })
+            const output = await freejourneyClient.send(slicedMessageContent)
 
             if (!output.completion) {
                 return outputMessage.edit({ content: 'Не удалось получить ответ от нейросети.', allowedMentions: { parse: [] } })
