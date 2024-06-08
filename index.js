@@ -1,6 +1,6 @@
 const fs = require('node:fs')
 const path = require('node:path')
-const { Client, GatewayIntentBits, Partials, ActivityType } = require('discord.js')
+const { Client, GatewayIntentBits, ActivityType } = require('discord.js')
 const { SUMMON_PREFIX, BOT_TOKEN } = require('./config.json')
 
 const client = new Client({
