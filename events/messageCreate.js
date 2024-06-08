@@ -15,11 +15,7 @@ module.exports = {
             await freejourneyClient.send(slicedMessageContent).then((response) => { output = response })
 
             if (!output.completion) {
-                if (output.error.indexOf('Rate limit')) {
-                    return outputMessage.edit({ content: 'Повторите попытку позже.', allowedMentions: { parse: [] } })
-                } else {
-                    return outputMessage.edit({ content: 'Не удалось получить ответ от нейросети.', allowedMentions: { parse: [] } })
-                }
+                return outputMessage.edit({ content: 'Не удалось получить ответ от нейросети.', allowedMentions: { parse: [] } })
             }
 
             completion = output.completion
