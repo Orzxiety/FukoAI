@@ -1,7 +1,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
 const { Client, GatewayIntentBits, Partials, ActivityType } = require('discord.js')
-const { SUMMON_MESSAGE, BOT_TOKEN } = require('./config.json')
+const { SUMMON_PREFIX, BOT_TOKEN } = require('./config.json')
 
 const client = new Client({
     intents: [
@@ -15,7 +15,7 @@ const client = new Client({
     ],
     presence: {
         activities: [{
-            name: `${SUMMON_MESSAGE}[сообщение]`,
+            name: `${SUMMON_PREFIX}[сообщение]`,
             type: ActivityType.Listening
         }]
     }
