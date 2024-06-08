@@ -14,7 +14,8 @@ const client = new Client({
             name: `${SUMMON_PREFIX}[сообщение]`,
             type: ActivityType.Listening
         }]
-    }
+    },
+    allowedMentions: { parse: [] } 
 })
 
 const eventsPath = path.join(__dirname, 'events')
